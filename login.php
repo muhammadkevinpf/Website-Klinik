@@ -5,12 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Klinik</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-        <link rel="stylesheet" href="assets/css/input-material.css">
+        <?php include 'css.php'?>
     </head>
     <body>
+    <?php include 'navbar.php'?>
     <div class="container mid">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 mx-auto">
@@ -40,12 +38,17 @@
                     include 'config/conn.php';
                     include 'class/validation.php';
                     $login = new validation;
-                    if(isset($_POST['submit']))
-                    $login->login($conn,$_POST['username'],$_POST['password']);
+                    if(isset($_POST['submit'])){
+                        $login->login($conn,$_POST['username'],$_POST['password']);
+                        $_SESSION['nama'] = $login->getNama();
+                    }
+
                 ?>
             </div>
         </div>
     </div>
+
+    <?php include 'footer.php'?>
         
     <?php include 'jquery.php' ?>
 

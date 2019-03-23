@@ -1,10 +1,21 @@
 <?php
     class validation{
+        protected $nama;
+        public function setNama($nama){
+            $this->nama = $nama;
+        }
+        public function getNama(){
+            return $this->nama;
+        }
         public function login($conn,$username,$password){
-            $q = "select * from login where username='{$username}' and password='{$password}'";
+            $q = "select l.username, l.password, l.nik, u.nama from login as l 
+            inner join users as u on l.nik = u.nik
+            where l.username='{$username}' and l.password='{$password}'";
             $res = $conn->query($q);
+            $row = $res->fetch_assoc();
             if(mysqli_num_rows($res) > 0){
-                echo "<meta http-equiv='refresh' content='0;url=http://google.com/' />";
+                $this->setNama($row['nama']);
+                echo "<meta http-equiv='refresh' content='0;url=/klinik/' />";
             }else{
                 echo "<div class='alert alert-danger'>
                 <p class='text-center'>Username / Password Salah</p>
