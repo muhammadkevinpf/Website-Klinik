@@ -13,8 +13,8 @@
     <?php include 'navbar.php'?>
     <div id="page-container">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mx-auto">
+            <div class="row ">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mx-auto mt-2">
                     <div class="card box-shad card-3">
                         <div class="card-heading"></div>
                         <div class="card-body">
@@ -28,15 +28,16 @@
                             ?>
                             <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <div class="form-group input-material">
-                                    <input type="text" class="form-control" name="nik" required/>
+                                    <input type="text" class="form-control" id="nik" name="nik" required/>
                                     <label for="nik">NIK</label>
+                                    <small id="alertNik" class="alert-danger pl-1" style="display:none;">NIK sudah terdaftar</small>
                                 </div>
                                 <div class="form-group input-material">
                                     <input type="text" class="form-control" name="nama" required/>
                                     <label for="nama">Nama</label>
                                 </div>
                                 <div class="form-group input-material">
-                                    <input type="text" class="form-control" name="tanggal" onblur="this.type='text'" onfocus="this.type='date'" required/>
+                                    <input type="text" class="form-control" name="tanggal" onfocus="this.type='date'" required/>
                                     <label for="tanggal">Tanggal Lahir</label>
                                 </div>
                                 <div class="form-group input-material">
@@ -44,13 +45,14 @@
                                     <label for="alamat">Alamat</label>
                                 </div>
                                 <div class="form-group input-material">
-                                    <input type="text" class="form-control" name="username" required/>
-                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" required/>
+                                    <label for="username" >Username</label>
+                                    <small id="uname" class='alert-danger pl-1' style='display:none;'>Username sudah digunakan</small>
                                 </div>
                                 <div class="form-group input-material">
                                     <input type="password" class="form-control" id="password" name="password" minlength="8" required/>
                                     <label for="password">Password</label>
-                                    <p id="danger" style="display:none" class="alert-danger">Password Min 8 Karakter</p>
+                                    <small id="danger" style="display:none" class="alert-danger">Password Min 8 Karakter</small>
                                 </div>
                                     
                                 <div class="text-center">
@@ -82,6 +84,44 @@
                 $('#danger').css('display','none');
             }
         });
+
+        $('#username').focusout(function(){
+            var uname = this.value
+            $.ajax({
+                type:'get',
+                url:'ajaxUsername.php',
+                data: {username:uname},
+                dataype: 'json',
+                success: function(response){
+                    var len = response.length;
+                    if(len == 2){
+                        $("#uname").css('display','none');
+                    }else{
+                        $("#uname").css('display','inline');
+                    }
+                }
+            });
+        });
+
+        $('#nik').focusout(function(){
+            var niks = this.value;
+            $.ajax({
+                type:'get',
+                url:'ajaxNik.php',
+                data: {nik : niks},
+                datatype: 'json',
+                success: function(response){
+                    var len = response.length;
+                    if(len == 2){
+                        $("#alertNik").css('display','none');
+                    }else{
+                        $("#alertNik").css('display','inline');
+                    }
+                }
+
+            });
+        });
+
         });
     </script>
     </body>

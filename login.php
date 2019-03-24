@@ -41,6 +41,7 @@
                     if(isset($_POST['submit'])){
                         $login->login($conn,$_POST['username'],$_POST['password']);
                         $_SESSION['nama'] = $login->getNama();
+                        $_SESSION['nik'] = $login->getNik(); 
                     }
 
                 ?>

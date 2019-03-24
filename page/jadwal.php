@@ -21,8 +21,8 @@
     <div class="page-container">
         <div class="container-fluid">
             <div class="row mid">
-                <div class="col-lg-7 mx-auto">
-                    <table class="table table-inverse table-bordered table-responsive table-hover">
+                <div class="col-lg-6 mx-auto">
+                    <table class="table table-inverse table-bordered table-hover">
                         <legend class="text-center">Jadwal Praktek Dokter Gigi<br>Bandung Medical Center Jatinangor
                         </legend>
                         <thead class="thead-inverse">
@@ -111,6 +111,24 @@
         </div>
     </div>
 
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert-success">
+                <h4 class="modal-title">Success</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <img src="../assets/img/checkmark.png" class="mx-auto d-block img-fluid" style="width:50%"/>
+                <h4 class="text-center mt-4">Pendaftaran anda berhasil</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php include '../footer.php'?>
     <?php include '../jquery.php'?>
 
@@ -144,8 +162,10 @@
                         }
                     });
                 });
-            
         });
+    </script>
+    <script>
+        <?php $jadwal->insertDaftar($conn,$_SESSION['nik'],$_POST['hari']) ?>
     </script>
 </body>
 

@@ -114,6 +114,12 @@ footer {
     width: 100%;
     padding: 1em;
     background: #aa2520;
-    color: #fafafa;
-    position: relative;
+}
+
+.ikon {
+    font-size: 10vh;
+}
+
+.carousel-caption {
+    color: black !important;
 }

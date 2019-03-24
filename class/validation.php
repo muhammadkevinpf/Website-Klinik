@@ -1,12 +1,20 @@
 <?php
     class validation{
         protected $nama;
+        protected $nik;
         public function setNama($nama){
             $this->nama = $nama;
         }
         public function getNama(){
             return $this->nama;
         }
+        public function setNik($nik){
+            $this->nik = $nik;
+        }
+        public function getNik(){
+            return $this->nik;
+        }
+
         public function login($conn,$username,$password){
             $q = "select l.username, l.password, l.nik, u.nama from login as l 
             inner join users as u on l.nik = u.nik
@@ -14,8 +22,14 @@
             $res = $conn->query($q);
             $row = $res->fetch_assoc();
             if(mysqli_num_rows($res) > 0){
-                $this->setNama($row['nama']);
-                echo "<meta http-equiv='refresh' content='0;url=/klinik/' />";
+                if($username == 'admin'){
+                    echo "<meta http-equiv='refresh' content='0;url=/klinik/admin/' />";
+                }else{
+                    $this->setNama($row['nama']);
+                    $this->setNik($row['nik']);
+                    echo "<meta http-equiv='refresh' content='0;url=/klinik/' />";
+                }
+                
             }else{
                 echo "<div class='alert alert-danger'>
                 <p class='text-center'>Username / Password Salah</p>
