@@ -62,11 +62,7 @@
 
             <div class="row">
                 <div class="col-lg-1 mx-auto">
-                    <?php 
-                        if(isset($_SESSION['nama'])){
-                            echo '<button class="btn btn-danger" data-toggle="modal" data-target="#modalBook">Pendaftaran</button>';
-                        }
-                    ?>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#modalBook" <?php if(!isset($_SESSION['nama'])) echo 'disabled'; ?>>Pendaftaran</button>
                     
                 </div>
             </div>

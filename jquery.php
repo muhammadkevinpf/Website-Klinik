@@ -7,5 +7,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="/klinik/assets/js/jquery.scrollify.js"></script>
 <script src="/klinik/assets/js/jquery.bxslider.js"></script>
+<script src="/klinik/assets/js/bsnav.min.js"></script>
 
 

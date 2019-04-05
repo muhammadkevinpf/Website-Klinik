@@ -17,7 +17,7 @@
     $kontak = new kontak;
     ?>
 
-    <section>
+    <section id="home">
     <div id="carouselId" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -47,7 +47,7 @@
         
     </section>
 
-    <section>
+    <section id="layanan">
         <div class="container d-flex justify-content-center">
             <div class="wrapper p-5">
                 <div class="row mb-5">
@@ -97,7 +97,7 @@
 
     </section>
 
-    <section>
+    <section id="kontak">
         <div class="contact h-100">
             <div class="wrapper">
                 <div class="container">
@@ -143,7 +143,7 @@
 
 
 
-            <div class="footer text-center">
+            <div class="footer text-center text-white">
                 Copyright &copy; HAS <?php echo date('Y'); ?>
             </div>
         </div>
