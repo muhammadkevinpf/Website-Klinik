@@ -16,14 +16,16 @@
         }
 
         public function login($conn,$username,$password){
-            $q = "select l.username, l.password, l.nik, u.nama from login as l 
+            $q = "select l.username, l.password, l.nik, l.status, u.nama from login as l 
             inner join users as u on l.nik = u.nik
             where l.username='{$username}' and l.password='{$password}'";
             $res = $conn->query($q);
             $row = $res->fetch_assoc();
             if(mysqli_num_rows($res) > 0){
-                if($username == 'admin'){
-                    echo "<meta http-equiv='refresh' content='0;url=/klinik/admin/' />";
+                if($row['status'] == 'admin'){
+                    echo "<meta http-equiv='refresh' content='0;url=/klinik/monster-lite/admin' />";
+                }else if($row['status'] == 'dokter'){
+                    echo "<meta http-equiv='refresh' content='0;url=/klinik/monster-lite/dokter' />";
                 }else{
                     $this->setNama($row['nama']);
                     $this->setNik($row['nik']);
@@ -39,7 +41,7 @@
 
         public function register($conn,$nik,$tl,$nama,$alamat,$username,$password){
             $q = "insert into users values('{$nik}','{$nama}','{$alamat}','{$tl}')";
-            $q2 = "insert into login values(null,'{$username}','{$password}','{$nik}')";
+            $q2 = "insert into login values(null,'{$username}','{$password}','{$nik}','member')";
             $q3 = "select * from login where username='{$username}'";
             $res = $conn->query($q3);
             if(mysqli_num_rows($res) > 0){

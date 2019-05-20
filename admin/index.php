@@ -155,11 +155,12 @@ $kontak = new kontak;
                                     <table class="table table-borderless table-striped table-earning pendaftaran" style="text-transform:capitalize;">
                                         <thead>
                                             <tr>
-                                                <th>Nomor</th>
                                                 <th class="text-center">Nama Dokter</th>
                                                 <th class="text-center">Jadwal</th>
                                                 <th class="text-center">Nama Pasien</th>
+                                                <th class="text-center">Tarif</th>
                                                 <th class="text-center">Tanggal Pendaftaran</th>
+                                                <th class="text-center">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>

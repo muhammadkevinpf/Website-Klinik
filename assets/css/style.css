@@ -6,8 +6,9 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+
 .mid {
-    margin-top: 10vh;
+    margin-top: 6vh;
 }
 
 .logo {
@@ -73,9 +74,10 @@ body {
     width: 100%;
 }
 
-#page-container {
-    position: relative;
-    min-height: 100vh;
+.jadwal {
+    background-image: url("https://i.pinimg.com/originals/5b/b0/10/5bb01097e72421de5876d42ff5de60ef.jpg");
+    background-size: cover;
+    background-position: center center;
 }
 
 #content-wrapper {
@@ -101,14 +103,6 @@ body {
     height: 500px;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1em;
-    background: #aa2520;
-    color: #fafafa;
-}
 
 .footer {
     width: 100%;
@@ -122,4 +116,46 @@ footer {
 
 .carousel-caption {
     color: black !important;
+}
+
+.testimoni {
+    background-image: url("https://asset.kompas.com/data/photo/2014/08/11/1101024shutterstock-123375616780x390.jpg");
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+}
+
+.isiTesti {
+    line-height: 5vh;
+}
+
+.owl-prev {
+    margin-right: 2vw;
+}
+
+.testi {
+    padding-right: 8%;
+    background-color: rgba(163, 162, 162, 0.5)
+}
+
+#background-merah {
+    height: 6rem
+}
+
+#go-to-top {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+}
+
+.btnUp {
+    border-radius: 50%;
+}
+
+
+@media only screen and (max-width : 980px) {
+    .separator {
+        border-left: none;
+        height: 0;
+    }
 }

@@ -17,7 +17,7 @@
                 <td>{$no}</td>
                 <td class='caps'>".$row['nama']."</td>
                 <td>".$row['email']."</td>
-                <td>".$row['pesan']."</td>
+                <td>".substr($row['pesan'],0,20)."...</td>
                 <td>".$row['created_at']."</td>
                 </tr>";
                 $no++;

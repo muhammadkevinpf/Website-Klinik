@@ -8,5 +8,8 @@
 <script src="/klinik/assets/js/jquery.scrollify.js"></script>
 <script src="/klinik/assets/js/jquery.bxslider.js"></script>
 <script src="/klinik/assets/js/bsnav.min.js"></script>
+<script src="/klinik/assets/js/owl.carousel.min.js"></script>
+<script src="/klinik/assets/js/tooltipster.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
